@@ -9,6 +9,7 @@ RUN apt-get update &&\
     apt-cache showpkg linkchecker &&\
     apt-get install -y linkchecker &&\
     apt-get install -y openssh-server &&\
+    apt-get install -y git &&\
     apt-get clean -y && rm -rf /var/lib/apt/lists/* &&\
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
     mkdir -p /var/run/sshd 
