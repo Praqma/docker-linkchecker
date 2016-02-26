@@ -1,1 +1,1 @@
-docker run --rm -t praqma/linkchecker linkchecker --help
+docker run --rm -t praqma/linkchecker:snapshot linkchecker --help
