@@ -1,28 +1,9 @@
-Linkchecker Context Repo.
-=================
-_Note:_ linkchecker creates report files which require _write permission_ in you project directory
+# Linkchecker docker image
 
-#Usage
+This is a docker image that comes preconfigured with a linkchecker tool. Documentation abot the tool can be found [here](https://wummel.github.io/linkchecker/man1/linkchecker.1.html#index)
 
-Command structure:
+The image is configured to work with the Docker plugin for Jenkins CI. That is when no commands are given when you create a container from the image, it starts an SSH server, which Jenkins can use to create and connect a slave.
 
-  linux / iOS:
+## Example
 
-```
-    docker run -v $(pwd):/data praqma/linkchecker:v[version number] [Options] [Output Options] [URL]
-```
-
-  Windows:
-
-```
-    docker run -v /$(pwd):\\data praqma/linkchecker:v[version number] [Options] [Output Options] [URL]
-```
-
-### Example
-```
-docker run -v $(pwd):/data praqma/linkchecker:v3 -o text -Fhtml/report/linkchecker.report.html -Fcsv/report/linkchecker.report.csv http://www.example.com
-
-```
-→ reports(in html and cvs) will be saved in folder **report** with filename **linkchecker.reprot.html** and **linkchecker.report.csv** , in your mounted directory.
-
-For linkchecker documentation click [here](https://wummel.github.io/linkchecker/man1/linkchecker.1.html#index)
+I've included a script as an example on how to use the script, `run.sh`.
