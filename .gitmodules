@@ -1,0 +1,3 @@
+[submodule "linkchecker"]
+	path = linkchecker
+	url = https://github.com/linkcheck/linkchecker.git
