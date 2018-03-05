@@ -25,8 +25,12 @@ RUN apt-get update && \
 
 
 # Install linkchecker from sources as it is more dynamic - currently from a sha1 on master, but should later be a tag
+# reference: https://github.com/linkcheck/linkchecker/blob/master/doc/install.txt
 COPY linkchecker /home/jenkins/linkchecker
-RUN pip install -e /home/jenkins/linkchecker
+WORKDIR /home/jenkins/linkchecker
+RUN python setup.py sdist --manifest-only
+RUN python setup.py build
+RUN python setup.py install
 
 COPY linkchecker.env /home/jenkins/linkchecker
 RUN cat /home/jenkins/linkchecker/linkchecker.env
